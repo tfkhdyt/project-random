@@ -1,4 +1,5 @@
-const input = require('input');
+import input from 'input';
+import boxen from 'boxen';
 
 class MesinMinuman {
   constructor() {
@@ -49,11 +50,11 @@ class MesinMinuman {
   }
 
   showHeader() {
-    console.log('===== Penjual Minuman Kekinian =====');
+    return 'Penjual Minuman Kekinian';
   }
 
   showMenu() {
-    const text = `Varian:
+    return `Varian:
   - Sweet (Rp10.000)
   - Soda (Rp8.000)
 
@@ -63,10 +64,9 @@ Topping:
 
 Cup:
   - Normal
-  - Large (+ Rp7.000)
-  `;
+  - Large (+ Rp7.000)`;
 
-    console.log(text);
+    // console.log(text);
   }
 
   formatNumber(num) {
@@ -100,8 +100,15 @@ Cup:
 const mesin = new MesinMinuman();
 
 (async () => {
-  mesin.showHeader();
-  mesin.showMenu();
+  console.log(
+    boxen(
+      mesin.showMenu(),
+      {
+        title: mesin.showHeader(),
+        padding: 1
+      }
+    )
+  );
 
   mesin.varian = await input.select('Pilih varian minuman', [
     {
@@ -136,6 +143,12 @@ const mesin = new MesinMinuman();
     },
   ]);
 
-  console.log(`\nTotal harga: ${mesin.hitungHarga()}
-======== Selamat Menikmati =========`);
+  console.log(
+    boxen(
+      `Total harga: ${mesin.hitungHarga()}`,
+      {
+        padding: 1
+      }
+    )
+  );
 })();

@@ -10,6 +10,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "boxen": "^6.2.1",
     "input": "^1.0.1"
-  }
+  },
+  "type": "module"
 }
