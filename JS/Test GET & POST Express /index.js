@@ -13,43 +13,57 @@ const capitalize = (text) => {
   }).join(' ');
 };
 
+const user = [{
+  nama: 'Taufik Hidayat',
+  nim: '301200032',
+  prodi: 'Teknik Informatika'
+}, {
+  nama: 'Teja Kusumah',
+  nim: '301200033',
+  prodi: 'Teknik Informatika'
+}];
+
+const keyValidation = (req, res, next) => {
+  if (req.query.key != 'QNkRd2Q2sTu2r') {
+    res.status(401);
+    return res.json({
+      message: 'API Key tidak valid!'
+    });
+  }
+  next();
+};
+
 app.get('/', (req, res) => {
   res.render('index', {
     title: 'Homepage'
   });
 });
 
-// app.get('/get', (req, res) => {
-//   const anu = req.params.anu || '';
-//   res.render('get', {
-//     params: anu
-//   });
-// });
-
-app.get('/get/:anu', (req, res) => {
-  const anu = req.params.anu || '';
-  let nama = req.query.nama;
-  nama = nama.split(' ').map((e) => {
-    return e[0].toUpperCase() + e.substring(1).toLowerCase();
-  }).join(' ');
-  res.render('get', {
-    params: anu,
-    nama
-  });
-});
-
-app.get('/post', (req, res) => {
-  const nama = '';
-  res.render('post', {
-    nama
-  });
-});
-
-app.post('/post', (req, res) => {
-  const nama = req.body.nama;
-  res.render('post', {
-    nama: capitalize(nama)
-  });
+app.get('/get/user', keyValidation, (req, res) => {
+  const nim = req.query.nim;
+  const fetchedData = user.find((e) => e.nim == nim);
+  let json = {
+    message: null,
+    data: {
+      nama: null,
+      nim: null,
+      prodi: null
+    }
+  };
+  
+  if (fetchedData) {
+    res.status(200);
+    json.message = 'Data berhasil ditemukan!';
+    json.data.nama = fetchedData.nama;
+    json.data.nim = fetchedData.nim;
+    json.data.prodi = fetchedData.prodi;
+  } else {
+    res.status(404);
+    json.message = 'Data tidak ditemukan!';
+    delete json.data;
+  }
+  
+  res.json(json);
 });
 
 app.listen(PORT, () => {
