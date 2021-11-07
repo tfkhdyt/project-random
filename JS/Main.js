@@ -1,3 +1,13 @@
-const generateRandomNIM = require('./generateRandomNim');
+class Main {
+  constructor() {
+    this._anjay = 6;
+  }
+  
+  get anjay() {
+    return this._anjay + 9;
+  }
+}
 
-console.log('Random NIM Anda:', generateRandomNIM());
+const obj = new Main();
+// console.log(obj.anjay);
+console.log(obj.anjay);
