@@ -1,0 +1,22 @@
+{
+  "data": [
+    {
+      "nama": "Taufik Hidayat",
+      "nim": "301200032",
+      "fakultas": "Teknologi Informasi",
+      "prodi": "Teknik Informatika"
+    },
+    {
+      "nama": "M. Fauzi Fathirohman",
+      "nim": "301100069",
+      "fakultas": "Teknologi Informasi",
+      "prodi": "Sistem Informasi"
+    },
+    {
+      "nama": "Maman Racing",
+      "nim": "69420",
+      "fakultas": "Teknik Pembalap",
+      "prodi": "Balap Keong"
+    }
+  ]
+}
