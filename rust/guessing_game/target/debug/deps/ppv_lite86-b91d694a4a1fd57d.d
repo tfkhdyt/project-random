@@ -1,0 +1,10 @@
+/data/data/com.termux/files/home/project/rust/guessing_game/target/debug/deps/ppv_lite86-b91d694a4a1fd57d.rmeta: /data/data/com.termux/files/home/.cargo/registry/src/github.com-1ecc6299db9ec823/ppv-lite86-0.2.15/src/lib.rs /data/data/com.termux/files/home/.cargo/registry/src/github.com-1ecc6299db9ec823/ppv-lite86-0.2.15/src/soft.rs /data/data/com.termux/files/home/.cargo/registry/src/github.com-1ecc6299db9ec823/ppv-lite86-0.2.15/src/types.rs /data/data/com.termux/files/home/.cargo/registry/src/github.com-1ecc6299db9ec823/ppv-lite86-0.2.15/src/generic.rs
+
+/data/data/com.termux/files/home/project/rust/guessing_game/target/debug/deps/libppv_lite86-b91d694a4a1fd57d.rlib: /data/data/com.termux/files/home/.cargo/registry/src/github.com-1ecc6299db9ec823/ppv-lite86-0.2.15/src/lib.rs /data/data/com.termux/files/home/.cargo/registry/src/github.com-1ecc6299db9ec823/ppv-lite86-0.2.15/src/soft.rs /data/data/com.termux/files/home/.cargo/registry/src/github.com-1ecc6299db9ec823/ppv-lite86-0.2.15/src/types.rs /data/data/com.termux/files/home/.cargo/registry/src/github.com-1ecc6299db9ec823/ppv-lite86-0.2.15/src/generic.rs
+
+/data/data/com.termux/files/home/project/rust/guessing_game/target/debug/deps/ppv_lite86-b91d694a4a1fd57d.d: /data/data/com.termux/files/home/.cargo/registry/src/github.com-1ecc6299db9ec823/ppv-lite86-0.2.15/src/lib.rs /data/data/com.termux/files/home/.cargo/registry/src/github.com-1ecc6299db9ec823/ppv-lite86-0.2.15/src/soft.rs /data/data/com.termux/files/home/.cargo/registry/src/github.com-1ecc6299db9ec823/ppv-lite86-0.2.15/src/types.rs /data/data/com.termux/files/home/.cargo/registry/src/github.com-1ecc6299db9ec823/ppv-lite86-0.2.15/src/generic.rs
+
+/data/data/com.termux/files/home/.cargo/registry/src/github.com-1ecc6299db9ec823/ppv-lite86-0.2.15/src/lib.rs:
+/data/data/com.termux/files/home/.cargo/registry/src/github.com-1ecc6299db9ec823/ppv-lite86-0.2.15/src/soft.rs:
+/data/data/com.termux/files/home/.cargo/registry/src/github.com-1ecc6299db9ec823/ppv-lite86-0.2.15/src/types.rs:
+/data/data/com.termux/files/home/.cargo/registry/src/github.com-1ecc6299db9ec823/ppv-lite86-0.2.15/src/generic.rs:
