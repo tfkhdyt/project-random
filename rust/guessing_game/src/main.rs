@@ -6,7 +6,7 @@ fn main() {
     println!("Tebak angkanya!");
     let secret_number = rand::thread_rng().gen_range(1..101);
     // println!("Angka rahasianya adalah: {}", secret_number);
-    print!("bruh");
+    println!("bruh");
     loop {
         println!("Masukkan tebakan mu: ");
         let mut guess = String::new();
