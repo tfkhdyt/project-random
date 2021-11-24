@@ -1,10 +1,7 @@
-const rl = require('readline').createInterface({
-  input: process.stdin,
-  output: process.stdout,
-});
+const rl = require('readline-sync');
 
 (async () => {
-  const name = await rl.question("What's your name? ", (name) => name);
+  const name = await rl.question("What's your name? ");
   console.log(`Good morning, ${name}!`);
   // rl.close();
 })();
