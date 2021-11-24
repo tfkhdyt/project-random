@@ -1,0 +1,11 @@
+{
+  "name": "greeting",
+  "version": "0.1.1",
+  "main": "index.js",
+  "author": "tfkhdyt",
+  "license": "MIT",
+  "dependencies": {},
+  "scripts": {
+    "start": "node index.js"
+  }
+}
