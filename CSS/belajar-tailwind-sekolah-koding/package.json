@@ -7,5 +7,8 @@
     "autoprefixer": "^10.4.0",
     "postcss": "^8.4.1",
     "tailwindcss": "^2.2.19"
+  },
+  "scripts": {
+    "dev": "tailwindcss build ./src/css/style.css -o ./public/css/tailwind.css"
   }
 }
