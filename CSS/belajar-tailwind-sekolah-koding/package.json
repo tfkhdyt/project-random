@@ -2,5 +2,10 @@
   "name": "belajar-tailwind-sekolah-koding",
   "version": "1.0.0",
   "main": "index.js",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "autoprefixer": "^10.4.0",
+    "postcss": "^8.4.1",
+    "tailwindcss": "^2.2.19"
+  }
 }
