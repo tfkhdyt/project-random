@@ -1,9 +1,9 @@
-const clear = (milliseconds) => {
+const clear = (ms) => {
   const date = Date.now();
-  let currentDate = null;
+  let currentDate;
   do {
     currentDate = Date.now();
-  } while (currentDate - date < milliseconds);
+  } while (currentDate - date < ms);
   console.clear();
 };
 
@@ -18,7 +18,7 @@ while (true) {
         \\---------]
            I     I
         -----------/`);
-  clear(200);
+  clear(100);
   console.log(`         :LOL:ROFL:ROFL
            A
        /--------
@@ -27,5 +27,5 @@ while (true) {
         \\---------]
            I     I
         -----------/`);
-  clear(200);
+  clear(100);
 }
