@@ -1,0 +1,9 @@
+{
+  "name": "kombinasi",
+  "version": "1.0.0",
+  "main": "kombinasi.js",
+  "license": "MIT",
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  }
+}
