@@ -7,11 +7,9 @@ const getTime = (hours) => {
   else return 'night';
 };
 
-(async () => {
-  const name = await rl.question("What's your name? ");
+const name = rl.question("What's your name? ");
 
-  const hours = new Date().getHours();
-  const time = getTime(hours);
+const hours = new Date().getHours();
+const time = getTime(hours);
 
-  console.log(`Good ${time}, ${name}!`);
-})();
+console.log(`Good ${time}, ${name}!`);

@@ -6,6 +6,7 @@
   "author": "tfkhdyt",
   "license": "MIT",
   "dependencies": {
+    "esbuild": "^0.14.1",
     "readline-sync": "^1.4.10"
   },
   "scripts": {
