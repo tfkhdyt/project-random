@@ -1,9 +1,0 @@
-{
-  "name": "warnet",
-  "version": "1.0.0",
-  "main": "index.js",
-  "license": "MIT",
-  "dependencies": {
-    "input": "^1.0.1"
-  }
-}
