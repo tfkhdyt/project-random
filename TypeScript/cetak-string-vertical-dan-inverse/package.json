@@ -1,0 +1,17 @@
+{
+  "name": "cetak-string-vertical-dan-inverse",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@types/node": "^17.0.8"
+  },
+  "scripts": {
+    "ts": "rm -rf ./build/* && tsc -w",
+    "dev": "nodemon ./build/index.js"
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true
+  }
+}
