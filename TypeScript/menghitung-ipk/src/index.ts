@@ -41,9 +41,11 @@ for (let i: number = 1; i <= jumlahMatkul; i++) {
   })()
   console.log()
 
+  // menghitung bobot angka dan nilai huruf
   const bobotAngka = getBobotAngka(nilai)
   const nilaiHuruf = getNilaiHuruf(nilai)
 
+  // push data ke array dataSemuaNilai
   dataSemuaNilai.push({
     nama,
     sks,
@@ -53,6 +55,7 @@ for (let i: number = 1; i <= jumlahMatkul; i++) {
   })
 }
 
+// tampilkan result
 console.log('Nama : ' + namaMhs)
 console.log('NIM  : ' + nim)
 console.log('IPK  : ' + ipk(dataSemuaNilai))
