@@ -2,7 +2,7 @@ import rl from 'readline-sync'
 import { SKS } from './libs/enums.lib'
 import { DataNilai } from './libs/interfaces.lib'
 import { getBobotAngka, getNilaiHuruf } from './utils/nilai.util'
-import { ipk } from './utils/ipk.util'
+import { getIpk, getPredikat } from './utils/ipk.util'
 
 // array yang menyimpan semua data nilai
 const dataSemuaNilai: DataNilai[] = []
@@ -55,8 +55,12 @@ for (let i: number = 1; i <= jumlahMatkul; i++) {
   })
 }
 
+const ipk = getIpk(dataSemuaNilai)
+const predikat = getPredikat(ipk)
+
 // tampilkan result
-console.log('Nama : ' + namaMhs)
-console.log('NIM  : ' + nim)
-console.log('IPK  : ' + ipk(dataSemuaNilai))
+console.log('Nama     : ' + namaMhs)
+console.log('NIM      : ' + nim)
+console.log('IPK      : ' + ipk)
+console.log('Predikat : ' + predikat)
 process.exit(0)
