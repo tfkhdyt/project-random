@@ -8,10 +8,14 @@
   },
   "scripts": {
     "ts": "rm -rf ./build/* && tsc -w",
-    "dev": "nodemon ./build/index.js"
+    "dev": "tsc-watch --onSuccess 'node ./build/index.js'"
   },
   "prettier": {
     "semi": false,
     "singleQuote": true
+  },
+  "devDependencies": {
+    "tsc-watch": "^4.6.0",
+    "typescript": "^4.5.4"
   }
 }
