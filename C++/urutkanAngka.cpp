@@ -1,3 +1,4 @@
+// taufik hidayat
 #include<iostream>
 using namespace std;
 
@@ -9,6 +10,7 @@ void urutkanAngka(int data[100], int jumlah) {
       if(data[i] > data[j]) {
         tmp = data[i];
         data[i] = data[j];
+        // taufik hidayat
         data[j] = tmp;
       }
     }
@@ -21,6 +23,7 @@ int main() {
   cout << "Program Mengurutkan Angka Kecil Ke Besar" << endl;
   
   cout << "Masukkan jumlah angka : ";
+  // taufik hidayat
   cin >> jumlah;
   cout << endl;
   
@@ -33,6 +36,7 @@ int main() {
   
   cout << "Data sebelum diurutkan : " << endl;
   for(int i = 0; i < jumlah; i++) {
+    // taufik hidayat
     cout << data[i] << " ";
   }
   cout << endl;
@@ -46,3 +50,4 @@ int main() {
   
   return 0;
 }
+// taufik hidayat
