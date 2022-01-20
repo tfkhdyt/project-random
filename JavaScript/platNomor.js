@@ -13,16 +13,15 @@ const kota = {
   jakarta: 'B'
 }
 
-const cekPlatNomor = (kota) => (
+const filterPlatNomor = (kota) => (
   arr.filter((value) => 
-    value.split(' ')[0] == kota).length
+    value.split(' ')[0] == kota)
 )
 
-arr.forEach((platNomor, index) => 
+const argument = kota.medan
+const filteredArray = filterPlatNomor(argument)
+
+filteredArray.forEach((platNomor, index) => 
   console.log(`${index + 1}. ${platNomor}`))
 
-console.log()
-
-console.log('Total kendaraan dari kota Medan adalah: ' + cekPlatNomor(kota.medan))
-console.log('Total kendaraan dari kota Aceh adalah: ' + cekPlatNomor(kota.aceh))
-console.log('Total kendaraan dari kota Jakarta adalah: ' + cekPlatNomor(kota.jakarta))
+console.log(`\nTotal kendaraan dari kota medan adalah: ${filteredArray.length}`)
