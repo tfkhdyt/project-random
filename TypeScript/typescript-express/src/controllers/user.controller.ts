@@ -18,7 +18,7 @@ class UserController implements IUserController {
       message: 'User telah berhasil dibuat!',
       data: {
         ...req.body,
-      }
+      },
     })
   }
 
