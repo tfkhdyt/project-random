@@ -1,5 +1,7 @@
-import { Router, Request, Response } from 'express'
+import { Router } from 'express'
+
 import IUserRouter from './user.d'
+import UserController from '../controllers/user.controller'
 
 class UserRouter implements IUserRouter {
   router: Router
@@ -10,15 +12,8 @@ class UserRouter implements IUserRouter {
   }
 
   private routes(): void {
-    this.router.get('/', (req: Request, res: Response) => {
-      res.send({
-        message: 'Hello, world!',
-      })
-    })
-
-    this.router.post('/', (req: Request, res: Response) => {
-      res.send(req.body)
-    })
+    this.router.get('/', UserController.index)
+    this.router.post('/', UserController.create)
   }
 }
 
