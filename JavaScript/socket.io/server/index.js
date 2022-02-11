@@ -1,7 +1,7 @@
-const {default: axios} = require("axios");
-const { Server } = require("socket.io");
-
-const io = new Server(4000, { /* options */ });
+import express from "express"
+import axios from 'axios'
+import { createServer } from "http"
+import { Server } from "socket.io"
 
 const mhs = [
   {
@@ -14,34 +14,48 @@ const mhs = [
   }
 ]
 
+const app = express();
+
+app.get('/mhs', (req, res) => {
+  res.send({ mhs })
+})
+
+app.get('/cat', async (req, res) => {
+  try {
+    const response = await axios.get('https://cat-fact.herokuapp.com/facts')
+    const data = response.data
+    const randomIndex = Math.floor(Math.random() * data.length)
+    const randomFact = data[randomIndex].text
+    res.send({ randomFact })
+  } catch (err) {
+    res.send({ err })
+    console.log(err)
+  }
+})
+
+const httpServer = createServer(app);
+const io = new Server(httpServer);
+
 io.on("connection", (socket) => {
-  console.log(`${socket.id} is connected!`)
-  socket.on('getAllData', (callback) => {
-    callback(null, mhs)
+  socket.on('mhs', (callback) => {
+    try {
+      callback(null, mhs)
+    } catch (err) {
+      callback(err, null)
+    }
   })
 
-  socket.on('getData', (id) => {
-    const data = mhs.filter((value) => value.nim === id)
-    socket.emit('getData', data)
-  })
-
-  socket.on('calculate', (a, b) => {
-    const result = a + b
-    socket.emit('calculate', result)
-  })
-
-  socket.on('catFact', async (callback) => {
+  socket.on('cat', async (callback) => {
     try {
       const res = await axios.get('https://cat-fact.herokuapp.com/facts')
       const data = res.data
       const randomIndex = Math.floor(Math.random() * data.length)
       const randomFact = data[randomIndex].text
-      callback(null, randomFact)
+      callback(null, { randomFact })
     } catch (err) {
       callback(err, null)
     }
   })
 });
 
-
-// console.log(data)
+httpServer.listen(4000);

@@ -4,6 +4,8 @@
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
+    "axios": "^0.25.0",
     "socket.io-client": "^4.4.1"
-  }
+  },
+  "type": "module"
 }
