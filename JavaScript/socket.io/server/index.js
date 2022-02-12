@@ -1,6 +1,7 @@
 import express from 'express'
 import { createServer } from 'http'
 import { Server } from 'socket.io'
+import axios from 'axios'
 
 const mhs = [
   {
@@ -71,6 +72,12 @@ app.get('/mhs', (req, res) => {
   res.send({ mhs })
 })
 
+app.get('/roadmaps', async (req, res) => {
+  const response = await axios.get('https://full-stack-roadmap-api.fly.dev/roadmaps/')
+  const data = response.data
+  res.send(data)
+})
+
 const httpServer = createServer(app)
 const io = new Server(httpServer)
 
@@ -78,6 +85,16 @@ io.on('connection', (socket) => {
   socket.on('mhs', (callback) => {
     try {
       callback(null, mhs)
+    } catch (err) {
+      callback(err, null)
+    }
+  })
+
+  socket.on('roadmaps', async (callback) => {
+    try {
+      const response = await axios.get('https://full-stack-roadmap-api.fly.dev/roadmaps/')
+      const data = response.data
+      callback(null, data)
     } catch (err) {
       callback(err, null)
     }

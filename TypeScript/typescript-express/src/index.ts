@@ -25,7 +25,7 @@ class App {
   }
 
   private routes(): void {
-    this.app.use('/users', UserRouter)
+    this.app.use('/api/v1/users', UserRouter)
   }
 }
 
