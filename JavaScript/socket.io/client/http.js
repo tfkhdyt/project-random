@@ -1,9 +1,12 @@
 import axios from 'axios'
 
-// HTTP Request
-for (let i = 0; i < 100; i++) {
-  const res = await axios.get('http://localhost:4000/cat')
-  const data = res.data
-  console.log(i+1, data)
+let counter = 0
+
+for (let i = 0; i < 10000; i++) {
+  axios.get('http://localhost:4000/mhs')
+    .then((res) => res.data)
+    .then((data) => {
+      console.log(++counter, data)
+    })
 }
 
