@@ -3,16 +3,37 @@ import morgan from 'morgan'
 import compression from 'compression'
 import helmet from 'helmet'
 import cors from 'cors'
+import { connect } from 'mongoose'
+import 'dotenv/config'
 
 import UserRouter from './routers/user.router'
 
-class App {
-  app: Application
+interface IConstructorParams {
+  port?: number
+  uri: string
+}
 
-  constructor() {
+class Server {
+  app: Application
+  port: number
+  uri: string
+
+  constructor({ port = 4000, uri }: IConstructorParams) {
+    this.port = port
+    this.uri = uri
     this.app = express()
+    this.connection()
     this.middlewares()
     this.routes()
+  }
+
+  private async connection() {
+    try {
+      await connect(this.uri)
+      console.log('Connected to DB')
+    } catch (err) {
+      throw err
+    }
   }
 
   private middlewares(): void {
@@ -29,8 +50,11 @@ class App {
   }
 }
 
-const app = new App().app
-const port: number = Number(process.env.PORT) || 4000
+const server = new Server({
+  port: Number(process.env.PORT) || 4000,
+  uri: `mongodb+srv://${process.env.MONGODB_USERNAME}:${process.env.MONGODB_PWD}@cluster0.pbe5r.mongodb.net/${process.env.MONGODB_DATABASE}?retryWrites=true&w=majority`,
+})
+const { app, port } = server
 
 app.listen(port, () => {
   console.log(`Server is starting at http://localhost:${port}`)
