@@ -22,9 +22,11 @@ class UserModel {
       created_at: {
         type: Date,
         required: true,
+        default: Date.now
       },
       updated_at: {
         type: Date,
+        default: Date.now
       },
     })
   }

@@ -7,6 +7,7 @@ import { connect } from 'mongoose'
 import 'dotenv/config'
 
 import UserRouter from './routers/user.router'
+import AuthRouter from './routers/auth.router'
 
 interface IConstructorParams {
   port?: number
@@ -47,6 +48,7 @@ class Server {
 
   private routes(): void {
     this.app.use('/api/v1/users', UserRouter)
+    this.app.use('/api/v1/auth', AuthRouter)
   }
 }
 

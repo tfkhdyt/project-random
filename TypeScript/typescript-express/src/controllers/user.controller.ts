@@ -3,10 +3,16 @@ import { Request, Response } from 'express'
 import IUserController from './user.d'
 import User from '../data/user.data'
 import IUser from '../data/user.d'
+import UserModel from '../models/user.model'
 
 class UserController implements IUserController {
-  index(req: Request, res: Response): Response {
-    return res.send({ users: User.sort((a, b) => a.id - b.id) })
+  async index(req: Request, res: Response): Promise<Response> {
+    try {
+      const users = await UserModel.find()
+      return res.status(200).send({ users })
+    } catch(err) {
+      return res.status(400).send({ err })
+    }
   }
 
   create(req: Request, res: Response): Response {

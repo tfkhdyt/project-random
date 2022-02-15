@@ -4,7 +4,7 @@ import AuthMiddleware from '../middlewares/auth.middleware'
 
 class UserRouter extends BaseRouter {
   routes(): void {
-    this.router.get('/', AuthMiddleware.auth, UserController.index)
+    this.router.get('/', UserController.index)
     this.router.post('/', UserController.create)
     this.router.get('/:id', UserController.read)
     this.router.patch('/:id', UserController.update)
