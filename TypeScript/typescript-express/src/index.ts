@@ -22,16 +22,18 @@ class Server {
   constructor({ port = 4000, uri }: IConstructorParams) {
     this.port = port
     this.uri = uri
-    this.app = express()
     this.connection()
+    this.app = express()
     this.middlewares()
     this.routes()
   }
 
-  private async connection() {
+  private connection() {
     try {
-      await connect(this.uri)
-      console.log('Connected to DB')
+      connect(this.uri)
+        .then(() => {
+          console.log('Connected to DB')
+        })
     } catch (err) {
       throw err
     }
