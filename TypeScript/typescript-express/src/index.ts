@@ -29,14 +29,11 @@ class Server {
   }
 
   private connection() {
-    try {
-      connect(this.uri)
-        .then(() => {
-          console.log('Connected to DB')
-        })
-    } catch (err) {
-      throw err
-    }
+    connect(this.uri)
+      .then(() => {
+        console.log('Connected to DB')
+      })
+      .catch((err) => console.log(err.message))
   }
 
   private middlewares(): void {

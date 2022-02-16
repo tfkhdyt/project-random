@@ -4,8 +4,12 @@ import AuthMiddleware from '../middlewares/auth.middleware'
 
 class AuthRouter extends BaseRouter {
   routes(): void {
-    this.router.post('/register', AuthMiddleware.validate, AuthController.register)
-    this.router.post('/login', AuthMiddleware.validate, AuthController.login)
+    this.router.post(
+      '/register',
+      AuthMiddleware.validate,
+      AuthController.register
+    )
+    this.router.post('/login', AuthController.login)
   }
 }
 

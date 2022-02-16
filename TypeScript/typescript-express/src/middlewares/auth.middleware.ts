@@ -3,7 +3,7 @@ import { check, validationResult } from 'express-validator'
 
 class AuthMiddleware {
   validate
-  
+
   constructor() {
     this.validate = this.validator()
   }
@@ -14,13 +14,13 @@ class AuthMiddleware {
       check('password').isLength({ min: 6 }),
       (req: Request, res: Response, next: NextFunction) => {
         const errors = validationResult(req)
-        if(!errors.isEmpty()) {
+        if (!errors.isEmpty()) {
           return res.status(400).send({
-            errors: errors.array()
+            errors: errors.array(),
           })
         }
         next()
-      }
+      },
     ]
   }
 }

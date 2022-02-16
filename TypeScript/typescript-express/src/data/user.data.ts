@@ -1,4 +1,4 @@
-import IUser from "./user";
+import IUser from './user'
 
 const users: IUser[] = [
   { id: 1, nama: 'Taufik Hidayat' },

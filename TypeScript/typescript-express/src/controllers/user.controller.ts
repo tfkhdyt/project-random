@@ -10,7 +10,7 @@ class UserController implements IUserController {
     try {
       const users = await UserModel.find()
       return res.status(200).send({ users })
-    } catch(err) {
+    } catch (err) {
       return res.status(400).send({ err })
     }
   }
@@ -23,33 +23,30 @@ class UserController implements IUserController {
 
   read(req: Request, res: Response): Response {
     const { id } = req.params
-    const user = User.find(value => value.id == Number(id))
+    const user = User.find((value) => value.id == Number(id))
     return res.send({ user })
   }
 
   update(req: Request, res: Response): Response {
     const { id } = req.params
     const { nama } = req.body
-    const user = User.find(value => value.id == Number(id))
-    const allUser = User.filter(value => value.id != Number(id))
+    const user = User.find((value) => value.id == Number(id))
+    const allUser = User.filter((value) => value.id != Number(id))
     const newUser = {
       ...user,
-      nama
+      nama,
     }
-    return res.send({ 
+    return res.send({
       message: 'Data berhasil diubah!',
-      users: [
-        ...allUser,
-        newUser
-      ]
+      users: [...allUser, newUser],
     })
   }
 
   delete(req: Request, res: Response): Response {
     const { id } = req.params
-    const users = User.filter(value => value.id !== Number(id))
+    const users = User.filter((value) => value.id !== Number(id))
     return res.send({
-      users
+      users,
     })
   }
 }

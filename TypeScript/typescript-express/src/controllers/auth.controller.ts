@@ -1,6 +1,6 @@
 import { Request, Response } from 'express'
-import { Secret } from 'jsonwebtoken'
 import { ObjectId } from 'mongodb'
+import { Secret } from 'jsonwebtoken'
 import 'dotenv/config'
 
 import UserModel from '../models/user.model'
@@ -16,28 +16,28 @@ class AuthController {
       const user = await UserModel.findOne({ username })
       if (user) {
         return res.status(400).send({
-          message: 'Username has been used'
+          message: 'Username has been used',
         })
       }
-    } catch(err) {
+    } catch (err) {
       return res.status(500).send({
-        error: err
+        error: err,
       })
     }
 
     try {
       const createdUser = await UserModel.create({
         username,
-        password: await hash(password)
-      }) 
+        password: hash(password),
+      })
       return res.status(200).send({
         message: 'Registrasi berhasil!',
-        user: createdUser
+        user: createdUser,
       })
-    } catch(err) {
+    } catch (err) {
       return res.status(500).send({
         message: 'Registrasi gagal!',
-        error: err
+        error: err,
       })
     }
   }
@@ -47,26 +47,26 @@ class AuthController {
     const { compare, generateToken } = Authentication
 
     try {
-      const user = await UserModel.findOne({ username }) 
+      const user = await UserModel.findOne({ username })
       if (!user) {
         return res.status(404).send({
-          message: 'Username tidak ditemukan!'
+          message: 'Username tidak ditemukan!',
         })
       }
 
-      const result = compare(password, user.password)
+      const result = await compare(password, user.password)
       if (!result) {
         return res.status(400).send({
-          message: 'Password salah!'
+          message: 'Password salah!',
         })
       }
 
       const token = generateToken<ObjectId>(user._id)
       return res.status(200).json({
         message: 'Login berhasil!',
-        token
+        token,
       })
-    } catch(err) {
+    } catch (err) {
       return res.status(500).send({ err })
     }
   }

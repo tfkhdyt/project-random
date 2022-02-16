@@ -14,7 +14,7 @@ class UserModel {
       username: {
         type: String,
         required: true,
-        unique: true
+        unique: true,
       },
       password: {
         type: String,
@@ -23,11 +23,11 @@ class UserModel {
       created_at: {
         type: Date,
         required: true,
-        default: Date.now
+        default: Date.now,
       },
       updated_at: {
         type: Date,
-        default: Date.now
+        default: Date.now,
       },
     })
   }

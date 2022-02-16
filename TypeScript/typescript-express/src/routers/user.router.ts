@@ -1,6 +1,5 @@
 import UserController from '../controllers/user.controller'
 import BaseRouter from './base.router'
-import AuthMiddleware from '../middlewares/auth.middleware'
 
 class UserRouter extends BaseRouter {
   routes(): void {
