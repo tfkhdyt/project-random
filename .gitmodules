@@ -1,3 +1,6 @@
 [submodule "Python/Juni 2021/crud-python"]
 	path = Python/Juni 2021/crud-python
 	url = git@github.com:tfkhdyt/crud-python.git
+[submodule "TypeScript/belajar-nestjs"]
+	path = TypeScript/belajar-nestjs
+	url = git@github.com:tfkhdyt/belajar-nestjs.git
