@@ -1,0 +1,28 @@
+body {
+  padding: 0px 5px 10px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.card {
+  border: solid 1px black;
+  margin: 20px 0;
+  padding: 0 20px;
+}
+
+.card .displayed_link {
+  margin-bottom: 1px;
+}
+
+.card .title {
+  color: #1558D6;
+  text-decoration: none;
+  font-size: 1.25rem;
+}
+
+.card .snippet {
+  margin-top: 3px;
+}

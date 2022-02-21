@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/search.css' />
+  </head>
+  <body>
+    <span>
+      <form action="/search" method="get">
+        <input type="text" name="q" id="q" value="<%= query %>" />
+        <button type="submit">Submit</button>
+      </form>
+    </span>
+    <div>
+      <%
+      data.forEach((e) => {
+      %>
+        <div class="card">
+          <p class="displayed_link"><%= e.displayed_link %></p>
+          <a href="<%= e.link %>" class="title"><%= e.title %></a>
+          <p class="snippet"><%= e.snippet %></p>
+        </div>
+      <%
+      })
+      %>
+    </div>
+    <div>
+      <a href="">Next</a>
+    </div>
+  </body>
+</html>
