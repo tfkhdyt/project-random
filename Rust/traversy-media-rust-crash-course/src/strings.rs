@@ -19,5 +19,22 @@ pub fn run() {
     // contains
     println!("Contains 'World': {}", hello.contains("World"));
 
-    println!("{}", hello);
+    // replace
+    println!("Replace: {}", hello.replace("World", "There"));
+
+    // loop through string by whitespace
+    for word in hello.split_whitespace() {
+        println!("{}", word);
+    }
+
+    // create string with capacity
+    let mut s = String::with_capacity(10);
+    s.push('a');
+    s.push('b');
+
+    println!("{}", s);
+
+    // assertion testing
+    assert_eq!(2, s.len());
+    assert_eq!(10, s.capacity());
 }
