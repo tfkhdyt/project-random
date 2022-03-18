@@ -12,13 +12,11 @@
   "dependencies": {
     "axios": "^0.26.1",
     "cheerio": "^1.0.0-rc.10",
-    "pretty": "^2.0.0",
-    "superagent": "^7.1.1"
+    "pretty": "^2.0.0"
   },
   "devDependencies": {
     "@types/node": "^17.0.21",
     "@types/pretty": "^2.0.1",
-    "@types/superagent": "^4.1.15",
     "@typescript-eslint/eslint-plugin": "^5.15.0",
     "@typescript-eslint/parser": "^5.15.0",
     "eslint": "^8.11.0",
