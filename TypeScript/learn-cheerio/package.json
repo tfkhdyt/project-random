@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "tsnd --respawn --clear ./app.ts"
+    "dev": "tsnd --respawn --clear ./src/app.ts",
+    "format": "prettier -w ./src",
+    "lint": "eslint --fix ./src"
   },
   "keywords": [],
   "author": "",
