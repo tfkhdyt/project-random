@@ -2,20 +2,24 @@ lockfileVersion: 5.3
 
 specifiers:
   '@types/node': ^17.0.22
+  '@types/prompts': ^2.0.14
   '@typescript-eslint/eslint-plugin': ^5.16.0
   '@typescript-eslint/parser': ^5.16.0
   eslint: ^8.11.0
   node-json-db: ^1.5.0
   prettier: ^2.6.0
+  prompts: ^2.4.2
   ts-node: ^10.7.0
   ts-node-dev: ^1.1.8
   typescript: ^4.6.2
 
 dependencies:
   node-json-db: 1.5.0
+  prompts: 2.4.2
 
 devDependencies:
   '@types/node': 17.0.22
+  '@types/prompts': 2.0.14
   '@typescript-eslint/eslint-plugin': 5.16.0_3fed250b11519414a4c7d52468dd6bf5
   '@typescript-eslint/parser': 5.16.0_eslint@8.11.0+typescript@4.6.2
   eslint: 8.11.0
@@ -113,6 +117,12 @@ packages:
 
   /@types/node/17.0.22:
     resolution: {integrity: sha512-8FwbVoG4fy+ykY86XCAclKZDORttqE5/s7dyWZKLXTdv3vRy5HozBEinG5IqhvPXXzIZEcTVbuHlQEI6iuwcmw==}
+    dev: true
+
+  /@types/prompts/2.0.14:
+    resolution: {integrity: sha512-HZBd99fKxRWpYCErtm2/yxUZv6/PBI9J7N4TNFffl5JbrYMHBwF25DjQGTW3b3jmXq+9P6/8fCIb2ee57BFfYA==}
+    dependencies:
+      '@types/node': 17.0.22
     dev: true
 
   /@types/strip-bom/3.0.0:
@@ -766,6 +776,11 @@ packages:
     resolution: {integrity: sha1-nbe1lJatPzz+8wp1FC0tkwrXJlE=}
     dev: true
 
+  /kleur/3.0.3:
+    resolution: {integrity: sha512-eTIzlVOSUR+JxdDFepEYcBMtZ9Qqdef+rnzWdRZuMbOywu5tO2w2N7rqjoANZ5k9vywhL6Br1VRjUIgTQx4E8w==}
+    engines: {node: '>=6'}
+    dev: false
+
   /levn/0.4.1:
     resolution: {integrity: sha512-+bT2uH4E5LGE7h/n3evcS/sQlJXCpIp6ym8OWJ5eV6+67Dsql/LaaT7qJBAt2rzfoa/5QBGBhxDix1dMt2kQKQ==}
     engines: {node: '>= 0.8.0'}
@@ -896,6 +911,14 @@ packages:
     hasBin: true
     dev: true
 
+  /prompts/2.4.2:
+    resolution: {integrity: sha512-NxNv/kLguCA7p3jE8oL2aEBsrJWgAakBpgmgK6lpPWV+WuOmY6r2/zbAVnP+T8bQlA0nzHXSJSJW0Hq7ylaD2Q==}
+    engines: {node: '>= 6'}
+    dependencies:
+      kleur: 3.0.3
+      sisteransi: 1.0.5
+    dev: false
+
   /punycode/2.1.1:
     resolution: {integrity: sha512-XRsRjdf+j5ml+y/6GKHPZbrF/8p2Yga0JPtdqTIY2Xe5ohJPD9saDJJLPvp9+NSBprVvevdXZybnj2cv8OEd0A==}
     engines: {node: '>=6'}
@@ -975,6 +998,10 @@ packages:
     resolution: {integrity: sha512-7++dFhtcx3353uBaq8DDR4NuxBetBzC7ZQOhmTQInHEd6bSrXdiEyzCvG07Z44UYdLShWUyXt5M/yhz8ekcb1A==}
     engines: {node: '>=8'}
     dev: true
+
+  /sisteransi/1.0.5:
+    resolution: {integrity: sha512-bLGGlR1QxBcynn2d5YmDX4MGjlZvy2MRBDRNHLJ8VI6l6+9FUiyTFNJ0IveOSP0bcXgVDPRcfGqA0pjaqUpfVg==}
+    dev: false
 
   /slash/3.0.0:
     resolution: {integrity: sha512-g9Q1haeby36OSStwb4ntCGGGaKsaVSjQ68fBxoQcutl5fS1vuY18H3wSt3jFyFtrkx+Kz0V1G85A4MyAdDMi2Q==}

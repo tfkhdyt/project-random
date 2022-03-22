@@ -1,0 +1,14 @@
+{
+    "mahasiswa": [
+        {
+            "name": "Taufik Hidayat",
+            "id": "301200032",
+            "major": "IF"
+        },
+        {
+            "name": "Teja Kusumah",
+            "id": "301200033",
+            "major": "IF"
+        }
+    ]
+}

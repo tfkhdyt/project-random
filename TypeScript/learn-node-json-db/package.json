@@ -2,18 +2,24 @@
   "name": "learn-node-json-db",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./src/app.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "tsnd --respawn --clear ./src/app.ts",
+    "start": "node ./dist/app.js",
+    "build": "tsc",
+    "format": "prettier -w ./src",
+    "lint": "eslint --fix ./src"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "tfkhdyt",
+  "license": "GPL-3.0",
   "dependencies": {
-    "node-json-db": "^1.5.0"
+    "node-json-db": "^1.5.0",
+    "prompts": "^2.4.2"
   },
   "devDependencies": {
     "@types/node": "^17.0.22",
+    "@types/prompts": "^2.0.14",
     "@typescript-eslint/eslint-plugin": "^5.16.0",
     "@typescript-eslint/parser": "^5.16.0",
     "eslint": "^8.11.0",
