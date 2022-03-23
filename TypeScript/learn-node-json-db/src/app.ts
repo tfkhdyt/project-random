@@ -4,7 +4,7 @@ import { Config } from 'node-json-db/dist/lib/JsonDBConfig'
 
 const db = new JsonDB(new Config('unibba', true, true, '/'))
 
-const addDataMenu = async () => {
+const showAddDataMenu = async () => {
   const response = await prompts([
     {
       type: 'text',
@@ -48,16 +48,16 @@ const addDataMenu = async () => {
     })
     console.clear()
     console.log('Data added successfully!')
-    mainMenu()
+    showMainMenu()
   } catch (err) {
     console.clear()
     console.error(err)
-    addDataMenu()
+    showAddDataMenu()
   }
 }
 
-const readData = async () => {
-  const data = db.getData('/mahasiswa')
+const showTable = async <T>(data: T) => {
+  console.clear()
   console.table(data)
   const response = await prompts({
     type: 'confirm',
@@ -68,11 +68,53 @@ const readData = async () => {
 
   if (response.isBackToMenu) {
     console.clear()
-    mainMenu()
+    showMainMenu()
   } else {
     console.clear()
     readData()
   }
+}
+
+const readData = async () => {
+  const data = db.getData('/mahasiswa')
+  showTable(data)
+}
+
+const showFindDataMenu = async (): Promise<void> => {
+  const { id } = await prompts({
+    type: 'text',
+    name: 'id',
+    message: 'Insert ID of student that you want to find',
+    validate: (id) => {
+      if (!id) {
+        return "ID can't be empty"
+      }
+      if (isNaN(id)) {
+        return 'ID is not valid'
+      }
+      return true
+    },
+  })
+
+  const userIndex = db.getIndex('/mahasiswa', id)
+  if (userIndex === -1) {
+    console.clear()
+    console.error('Data not found!')
+    const response = await prompts({
+      type: 'confirm',
+      name: 'isTryAgain',
+      message: 'Try again?',
+      initial: true,
+    })
+    console.clear()
+    if (response.isTryAgain) {
+      return showFindDataMenu()
+    } else {
+      return showMainMenu()
+    }
+  }
+  const userData = db.getData(`/mahasiswa[${userIndex}]`)
+  showTable(userData)
 }
 
 const actionMenu = (menu: string) => {
@@ -81,11 +123,15 @@ const actionMenu = (menu: string) => {
     case 'read':
       readData()
       break
+    case 'find':
+      console.clear()
+      showFindDataMenu()
+      break
     case 'add':
-      addDataMenu()
+      showAddDataMenu()
       break
     case 'delete':
-      deleteDataMenu()
+      // deleteDataMenu()
       break
     case 'exit':
       console.log('Thanks for using this program, bye bye!')
@@ -93,13 +139,14 @@ const actionMenu = (menu: string) => {
   }
 }
 
-const mainMenu = async () => {
+const showMainMenu = async () => {
   const { menu } = await prompts({
     type: 'select',
     name: 'menu',
     message: 'What are you going to do?',
     choices: [
       { title: 'Read data', value: 'read' },
+      { title: 'Find data', value: 'find' },
       { title: 'Add data', value: 'add' },
       { title: 'Update data', value: 'update' },
       { title: 'Delete data', value: 'delete' },
@@ -110,4 +157,4 @@ const mainMenu = async () => {
   actionMenu(menu)
 }
 
-mainMenu()
+showMainMenu()
