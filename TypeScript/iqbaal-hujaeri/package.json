@@ -1,0 +1,17 @@
+{
+  "name": "iqbaal-hujaeri",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "rm -fr ./dist && tsc",
+    "dev": "rm -fr ./dist && tsc --watch",
+    "start": "node ./dist/main.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^4.6.3"
+  }
+}
